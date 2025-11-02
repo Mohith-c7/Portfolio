@@ -111,8 +111,8 @@ export default function Portfolio() {
 
                   {/* Name and Title */}
                   <div>
-                    <h3 className="text-[20px] md:text-[24px] font-bold text-black mb-1">Mohith Kumar</h3>
-                    <p className="text-[14px] md:text-[16px] text-gray-600 font-bold">UI/UX designer, developer</p>
+                    <h3 className="text-[20px] md:text-[24px] font-bold text-black mb-1">Mohith Kumar Chadalawada</h3>
+                    <p className="text-[14px] md:text-[16px] text-gray-600 font-bold">Product Designer, UI/UX designer, developer</p>
                   </div>
                 </div>
 
@@ -209,7 +209,7 @@ export default function Portfolio() {
                         transition: { type: "spring", stiffness: 220, damping: 16 }
                       }}
                     >
-                      <span className="relative z-10">User Experience Designer</span>
+                      <span className="relative z-10">Product Designer</span>
                       <span className="badge-shine" />
                     </motion.span>
                     <motion.h2
@@ -219,7 +219,7 @@ export default function Portfolio() {
                         visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
                       }}
                     >
-                      turning your ideas into pixel-perfect realities
+                      turning ideas into purposeful products
                     </motion.h2>
                   </motion.div>
                 </motion.div>
@@ -498,12 +498,45 @@ export default function Portfolio() {
               className="absolute left-6 top-0 w-0.5 bg-white z-10"
               style={{ height: timelineFillHeight }}
             />
-            {/* Mobile Timeline Items - use same content as desktop */}
-            {/* 1 */}
-            <motion.div className="relative z-10" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+
+            {/* Experience Item 1 - Cryovault Biotech */}
+            <motion.div 
+              className="relative z-10" 
+              initial={{ opacity: 0, y: 40 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, amount: 0.5 }} 
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center flex-shrink-0">
+                  <Image src="/clogo.avif" alt="Cryovault Biotech" width={32} height={32} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-[20px] font-bold text-white">Cryovault Biotech India</h3>
+                    <span className="text-[14px] text-lime-400 font-semibold">July 2025 - Present</span>
+                  </div>
+                  <h4 className="text-[18px] font-bold text-lime-400 mb-4">Product Designer & Software Engineer</h4>
+                  <ul className="text-[14px] text-gray-300 space-y-2 list-disc pl-4">
+                    <li>Sole developer responsible for building the company website and customer portal.</li>
+                    <li>Designed and developed end-to-end solutions using Next.js, React, SQLite, and Strapi, ensuring scalability and performance.</li>
+                    <li>Created intuitive user experiences and design systems using Figma.</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Experience Item 2 - VIT-AP */}
+            <motion.div 
+              className="relative z-10" 
+              initial={{ opacity: 0, y: 40 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, amount: 0.5 }} 
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+            >
               <div className="flex items-start gap-4">
                 <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center flex-shrink-0">
-                  <Image src="/vitap.png" alt="VIT-AP University Logo" width={32} height={32} className="w-full h-full rounded-full object-cover" />
+                  <Image src="/vitap.png" alt="VIT-AP University" width={32} height={32} className="w-full h-full rounded-full object-cover" />
                 </div>
                 <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
@@ -514,45 +547,7 @@ export default function Portfolio() {
                   <ul className="text-[14px] text-gray-300 space-y-2 list-disc pl-4">
                     <li>Leading a cross-functional team to maintain streamlining collaboration between designers and developers.</li>
                     <li>Redesigned the university website to ensure consistency, navigation, and organized content hierarchy, enhancing user experience.</li>
-                    <li>Improved content discoverability and accessibility by organizing complex academic and administrative information into well-defined sections, reducing user confusion.</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-            {/* 2 */}
-            <motion.div className="relative z-10" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}>
-              <div className="flex items-start gap-4">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-gray-700 flex items-center justify-center flex-shrink-0">
-                  <Image src="/syv.jpeg" alt="SYV" width={32} height={32} className="w-full h-full rounded-full object-cover" />
-                </div>
-                <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-[20px] font-bold text-white">Sri Yantra Vidya Intelligent Systems</h3>
-                    <span className="text-[14px] text-lime-400 font-semibold">May 2025 - June 2025</span>
-                  </div>
-                  <h4 className="text-[18px] font-bold text-lime-400 mb-4">UI/UX Designer</h4>
-                  <ul className="text-[14px] text-gray-300 space-y-2 list-disc pl-4">
-                    <li>Designed and built a workforce management website from the ground up — starting with user research and wireframes to final UI.</li>
-                    <li>Created a scalable design system to maintain consistency across components and ensured the platform was fully accessible, following WCAG guidelines</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-            {/* 3 */}
-            <motion.div className="relative z-10" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}>
-              <div className="flex items-start gap-4">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-blue-400 flex items-center justify-center flex-shrink-0">
-                  <Image src="/soul.gif" alt="Easy Food Logo" width={32} height={32} className="w-full h-full rounded-full object-cover" />
-                </div>
-                <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-[20px] font-bold text-white">SOUL : Sense Our Ultimate Link</h3>
-                    <span className="text-[14px] text-lime-400 font-semibold">Jun 2024 - Aug 2024</span>
-                  </div>
-                  <h4 className="text-[18px] font-bold text-lime-400 mb-4">User Experience Designer</h4>
-                  <ul className="text-[14px] text-gray-300 space-y-2 list-disc pl-4">
-                    <li>Designed an end-to-end chatting application as the sole UI/UX designer</li>
-                    <li>Collaborated closely with stakeholders to understand user needs and with developers to ensure seamless handoff and implementation.</li>
+                    <li>Improved content discoverability and accessibility by organizing complex academic and administrative information into well-defined sections.</li>
                   </ul>
                 </div>
               </div>
@@ -560,7 +555,7 @@ export default function Portfolio() {
           </div>
 
           {/* Desktop Timeline Layout */}
-          <div className="hidden md:block relative flex w-full min-h-[900px]">
+          <div className="hidden md:block relative w-full min-h-[1200px]">
             {/* Timeline vertical line with scroll fill */}
             <motion.div
               className="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-700 rounded-full z-0 overflow-hidden"
@@ -572,16 +567,55 @@ export default function Portfolio() {
               />
             </motion.div>
             <div className="flex flex-col gap-32 w-full z-10">
-              {/* Experience Item 1 */}
+              {/* Experience Item 1 - Cryovault Biotech */}
               <motion.div
                 className="flex items-center w-full min-h-[300px]"
-                initial={{ opacity: 0, y: 0, scale: 0.96 }}
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
               >
                 {/* Left: Card */}
                 <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 ml-0 relative">
+                  <h3 className="text-[28px] font-bold mb-6">Product Designer & Software Engineer</h3>
+                  <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
+                    <li>Sole developer responsible for building the company website and customer portal.</li>
+                    <li>Designed and developed end-to-end solutions using Next.js, React, SQLite, and Strapi, ensuring scalability and performance.</li>
+                    <li>Created intuitive user experiences and design systems using Figma.</li>
+                  </ul>
+                </div>
+                {/* Center: Timeline node */}
+                <div className="flex flex-col items-center w-[10%] relative">
+                  <div className="w-20 h-20 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center z-10 overflow-hidden">
+                    <Image src="/clogo.avif" alt="Cryovault Biotech" width={64} height={64} className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                {/* Right: Company & Time */}
+                <div className="w-[45%] flex flex-col items-start pl-10">
+                  <span className="text-[28px] font-bold mb-2">Cryovault Biotech India</span>
+                  <span className="text-[20px] text-gray-400 mb-2">July 2025 - Present</span>
+                </div>
+              </motion.div>
+
+              {/* Experience Item 2 - VIT-AP */}
+              <motion.div
+                className="flex items-center w-full min-h-[300px]"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+              >
+                {/* Left: Company & Time */}
+                <div className="w-[45%] flex flex-col items-end pr-10">
+                  <span className="text-[28px] font-bold mb-2">VIT-AP University</span>
+                  <span className="text-[20px] text-gray-400 mb-2">Nov 2024 - present</span>
+                </div>
+                <div className="flex flex-col items-center w-[10%] relative">
+                  <div className="w-20 h-20 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center z-10 overflow-hidden">
+                    <Image src="/vitap.png" alt="VIT-AP University Logo" width={64} height={64} className="w-full h-full rounded-full object-cover" />
+                  </div>
+                </div>
+                <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 mr-0 relative">
                   <h3 className="text-[28px] font-bold mb-6">UI/UX Designer & Team Lead</h3>
                   <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
                     <li>Leading a cross-functional team to maintain streamlining collaboration between designers and developers.</li>
@@ -589,25 +623,15 @@ export default function Portfolio() {
                     <li>Improved content discoverability and accessibility by organizing complex academic and administrative information into well-defined sections, reducing user confusion.</li>
                   </ul>
                 </div>
-                {/* Center: Timeline node */}
-                <div className="flex flex-col items-center w-[10%] relative">
-                  <div className="w-20 h-20 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center z-10 overflow-hidden">
-                    <Image src="/vitap.png" alt="VIT-AP University Logo" width={64} height={64} className="w-full h-full rounded-full object-cover" />
-                  </div>
-                </div>
-                {/* Right: Company & Time */}
-                <div className="w-[45%] flex flex-col items-start pl-10">
-                  <span className="text-[28px] font-bold mb-2">VIT-AP University</span>
-                  <span className="text-[20px] text-gray-400 mb-2">Nov 2024 - present</span>
-                </div>
               </motion.div>
-              {/* Experience Item 2 */}
+              
+              {/* Experience Item 3 - SYV */}
               <motion.div
                 className="flex items-center w-full min-h-[300px]"
                 initial={{ opacity: 0, y: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
+                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
               >
                 <div className="w-[45%] flex flex-col items-end pr-10">
                   <span className="text-[28px] font-bold mb-2">Sri Yantra Vidya Intelligent Systems</span>
@@ -624,31 +648,6 @@ export default function Portfolio() {
                     <li>Designed and built a workforce management website from the ground up — starting with user research and wireframes to final UI.</li>
                     <li>Created a scalable design system to maintain consistency across components and ensured the platform was fully accessible, following WCAG guidelines</li>
                   </ul>
-                </div>
-              </motion.div>
-              {/* Experience Item 3 */}
-              <motion.div
-                className="flex items-center w-full min-h-[300px]"
-                initial={{ opacity: 0, y: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-              >
-                <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 ml-0 relative">
-                  <h3 className="text-[28px] font-bold mb-6">User Experience Designer</h3>
-                  <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
-                    <li>Designed an end-to-end chatting application as the sole UI/UX designer</li>
-                    <li>Collaborated closely with stakeholders to understand user needs and with developers to ensure seamless handoff and implementation.</li>
-                  </ul>
-                </div>
-                <div className="flex flex-col items-center w-[10%] relative">
-                  <div className="w-20 h-20 rounded-full bg-white border-4 border-blue-400 flex items-center justify-center z-10">
-                    <Image src="/soul.gif" alt="Easy Food Logo" width={64} height={64} className="w-full h-full rounded-full object-cover" />
-                  </div>
-                </div>
-                <div className="w-[45%] flex flex-col items-start pl-10">
-                  <span className="text-[28px] font-bold mb-2">SOUL : Sense Our Ultimate Link</span>
-                  <span className="text-[20px] text-gray-400 mb-2">Jun 2024 - Aug 2024</span>
                 </div>
               </motion.div>
             </div>

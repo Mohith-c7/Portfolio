@@ -11,10 +11,10 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mohithux.vercel.app'),
-  title: "Mohith Kumar - UI/UX Portfolio",
+  title: "Mohith Kumar - Product Designer",
   description:
-    "Passionate User Experience Designer, turning your ideas into pixel-perfect realities. Specializing in web design, branding, and user experience.",
-  keywords: "UI/UX designer, web design, user experience, portfolio, digital design, Mohith Kumar, UX designer, interface design",
+    "Passionate Product Designer, turning your ideas into pixel-perfect realities. Specializing in product design, web design, branding, and user experience.",
+  keywords: "Mohith Kumar Chadalawada, Product Designer, UI/UX designer, web design, user experience, portfolio, digital design, Mohith Kumar, UX designer, interface design",
   authors: [{ name: "Mohith Kumar" }],
   creator: "Mohith Kumar",
   publisher: "Mohith Kumar",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     apple: '/logoM-favicon.png',
   },
   openGraph: {
-    title: "Mohith Kumar - UI/UX Portfolio",
-    description: "Passionate User Experience Designer, turning your ideas into pixel-perfect realities.",
+    title: "Mohith Kumar - Product Designer",
+    description: "Passionate Product Designer, turning your ideas into pixel-perfect realities.",
     type: "website",
     locale: "en_US",
     url: "https://mohithux.vercel.app",
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
         url: "/profile-photo.png",
         width: 1200,
         height: 630,
-        alt: "Mohith Kumar - UI/UX Designer",
+        alt: "Mohith Kumar - Product Designer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohith Kumar - UI/UX Portfolio",
-    description: "Passionate User Experience Designer, turning your ideas into pixel-perfect realities.",
+    title: "Mohith Kumar - Product Designer Portfolio",
+    description: "Passionate Product Designer, turning your ideas into pixel-perfect realities.",
     creator: "@mohithkumar",
     images: ["/profile-photo.png"],
   },
