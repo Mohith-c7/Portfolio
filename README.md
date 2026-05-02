@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 ### Design & UX
 - **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
-- **Smooth Animations**: Framer Motion powered animations and transitions
+- **Smooth Animations**: Framer Motion powered animat ions and transitions
 - **Interactive Elements**: Hover effects, parallax scrolling, and dynamic backgrounds
 - **Accessibility**: WCAG compliant with skip links, focus management, and screen reader support
 - **Performance**: Optimized images, lazy loading, and efficient animations
