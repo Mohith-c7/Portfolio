@@ -1,0 +1,27 @@
+{
+  "name": "BuildByMohith - Mohith Kumar Chadalawada Portfolio",
+  "short_name": "BuildByMohith",
+  "description": "The official portfolio of Mohith Kumar Chadalawada, software engineer and full-stack product builder.",
+  "id": "https://buildbymohith.in/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "categories": ["portfolio", "developer", "software"],
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

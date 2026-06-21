@@ -1,6 +1,8 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Manrope } from "next/font/google"
+import { SeoJsonLd } from "@/components/seo-json-ld"
+import { siteConfig, socialImage } from "@/lib/seo"
 import "./globals.css"
 
 const manrope = Manrope({
@@ -10,45 +12,103 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mohithux.vercel.app'),
-  title: "Mohith Kumar | Software Engineer | Backend Developer",
-  description:
-    "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
-  keywords: "Mohith Kumar Chadalawada, Software Engineer, Backend Engineer, Full Stack Developer, AI Developer, distributed systems, API design, Next.js, FastAPI, Node.js, developer portfolio",
-  authors: [{ name: "Mohith Kumar" }],
-  creator: "Mohith Kumar",
-  publisher: "Mohith Kumar",
-  robots: "index, follow",
-  manifest: '/manifest.json',
-  icons: {
-    icon: '/logoM-favicon.png',
-    shortcut: '/logoM-favicon.png',
-    apple: '/logoM-favicon.png',
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.displayName} | Software Engineer Portfolio`,
+    template: `%s | ${siteConfig.displayName}`,
   },
-  openGraph: {
-    title: "Mohith Kumar | Software Engineer | Backend Developer",
-    description: "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
-    type: "website",
-    locale: "en_US",
-    url: "https://mohithux.vercel.app",
-    siteName: "Mohith Kumar Portfolio",
-    images: [
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.displayName, url: siteConfig.url }],
+  creator: siteConfig.displayName,
+  publisher: siteConfig.name,
+  applicationName: siteConfig.name,
+  category: "Portfolio",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-IN": "/",
+      en: "/",
+      "x-default": "/",
+    },
+  },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
       {
-        url: "/profile-photo.png",
-        width: 1200,
-        height: 630,
-        alt: "Mohith Kumar - Software Engineer",
+        url: "/favicon-96x96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
       },
     ],
   },
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.name,
+    statusBarStyle: "black-translucent",
+  },
+  openGraph: {
+    type: "profile",
+    locale: "en_IN",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.displayName} | Software Engineer Portfolio`,
+    description: siteConfig.description,
+    firstName: "Mohith",
+    lastName: "Chadalawada",
+    username: "Mohith-c7",
+    images: [socialImage],
+  },
   twitter: {
     card: "summary_large_image",
-    title: "Mohith Kumar | Software Engineer Portfolio",
-    description: "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
-    creator: "@mohithkumar",
-    images: ["/profile-photo.png"],
+    title: `${siteConfig.displayName} | Software Engineer Portfolio`,
+    description: siteConfig.description,
+    images: [socialImage.url],
   },
+  other: {
+    "profile:first_name": "Mohith",
+    "profile:last_name": "Chadalawada",
+    "profile:username": "Mohith-c7",
+    "og:email": siteConfig.email,
+    copyright: siteConfig.displayName,
+    rating: "general",
+    distribution: "global",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+}
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#a3e635",
 }
 
 export default function RootLayout({
@@ -59,45 +119,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/logoM-favicon.png" type="image/png" />
-        <link rel="alternate icon" href="/logoM-favicon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#a3e635" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="format-detection" content="telephone=no" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Mohith Portfolio" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="BuildByMohith" />
         <meta name="msapplication-TileColor" content="#a3e635" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="canonical" href="https://mohithux.vercel.app" />
+        <link rel="canonical" href={siteConfig.url} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="google-site-verification" content="YtsttUeRdfAlIuRTxanRPUF_DxmfPZ_weQwuw-z-b_o" />
-        {/* JSON-LD Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Mohith Kumar",
-              "url": "https://mohithux.vercel.app",
-              "image": "https://mohithux.vercel.app/profile-photo.png",
-              "sameAs": [
-                "mailto:iammohithkumar@gmail.com"
-              ],
-              "jobTitle": "Software Engineer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance"
-              },
-              "description": "Passionate Software Engineer specializing in backend architectures, distributed systems, REST/GraphQL APIs, and AI-powered applications."
-            })
-          }}
-        />
       </head>
       <body className={manrope.className}>
+        <SeoJsonLd />
         {children}
       </body>
     </html>
