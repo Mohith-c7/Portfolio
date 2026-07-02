@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ExternalLink, Github, Linkedin, Twitter, Instagram, Star, Zap, Terminal, Code2 } from "lucide-react"
+import { ArrowRight, ExternalLink, Github, Linkedin, Twitter, Instagram, Star, Zap, Terminal, Code2, Shield } from "lucide-react"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 import { motion, useScroll, useTransform } from "framer-motion"
 import GlassNav from "@/components/GlassNav"
@@ -883,13 +883,39 @@ export default function Portfolio() {
               style={{ height: timelineFillHeight }}
             />
  
-            {/* Experience Item 1 - Cryovault Biotech */}
+            {/* Experience Item 0 - BluCypher */}
             <motion.div 
               className="relative z-10" 
               initial={{ opacity: 0, y: 40 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, amount: 0.5 }} 
               transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="relative z-10 w-12 h-12 rounded-full bg-cyan-950 border-4 border-cyan-500 flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-[20px] font-bold text-white">BluCypher</h3>
+                    <span className="text-[14px] text-lime-400 font-semibold">Apr 2026 - Present</span>
+                  </div>
+                  <h4 className="text-[18px] font-bold text-lime-400 mb-4">Software Engineer Intern</h4>
+                  <ul className="text-[14px] text-gray-300 space-y-2 list-disc pl-4">
+                    <li>Contributing to the development of ThreatWeaver, a unified AI-powered cybersecurity platform for security operations and threat management.</li>
+                    <li>Designing and implementing scalable backend APIs and integrating modern databases to support platform features.</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Experience Item 1 - Cryovault Biotech */}
+            <motion.div 
+              className="relative z-10" 
+              initial={{ opacity: 0, y: 40 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, amount: 0.5 }} 
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
             >
               <div className="flex items-start gap-4">
                 <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center flex-shrink-0">
@@ -916,7 +942,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 40 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, amount: 0.5 }} 
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             >
               <div className="flex items-start gap-4">
                 <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center flex-shrink-0">
@@ -943,7 +969,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 40 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, amount: 0.5 }} 
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
             >
               <div className="flex items-start gap-4">
                 <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-gray-700 flex items-center justify-center flex-shrink-0">
@@ -977,7 +1003,7 @@ export default function Portfolio() {
               />
             </motion.div>
             <div className="flex flex-col gap-32 w-full z-10">
-              {/* Experience Item 1 - Cryovault Biotech */}
+              {/* Experience Item 0 - BluCypher */}
               <motion.div
                 className="flex items-center w-full min-h-[300px]"
                 initial={{ opacity: 0, y: 40, scale: 0.96 }}
@@ -987,27 +1013,26 @@ export default function Portfolio() {
               >
                 {/* Left: Card */}
                 <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 ml-0 relative">
-                  <h3 className="text-[28px] font-bold mb-6">Product Engineer & Backend Developer</h3>
+                  <h3 className="text-[28px] font-bold mb-6">Software Engineer Intern</h3>
                   <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
-                    <li>Designed and developed the company's portal and internal CRM, owning the implementation from planning through deployment.</li>
-                    <li>Implemented secure JWT user sessions and OAuth integrations in Next.js backend routes with PostgreSQL database layer.</li>
-                    <li>Designed and deployed containerized Strapi headless CMS service via Docker, improving deployment consistency and maintainability.</li>
+                    <li>Contributing to the development of ThreatWeaver, a unified AI-powered cybersecurity platform for security operations and threat management.</li>
+                    <li>Designing and implementing scalable backend APIs and integrating modern databases to support platform features.</li>
                   </ul>
                 </div>
                 {/* Center: Timeline node */}
                 <div className="flex flex-col items-center w-[10%] relative">
-                  <div className="w-20 h-20 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center z-10 overflow-hidden">
-                    <Image src="/clogo.avif" alt="Cryovault Biotech" width={64} height={64} className="w-full h-full object-cover" />
+                  <div className="w-20 h-20 rounded-full bg-cyan-950 border-4 border-cyan-500 flex items-center justify-center z-10 overflow-hidden">
+                    <Shield className="w-10 h-10 text-cyan-400" />
                   </div>
                 </div>
                 {/* Right: Company & Time */}
                 <div className="w-[45%] flex flex-col items-start pl-10">
-                  <span className="text-[28px] font-bold mb-2">Cryovault Biotech India</span>
-                  <span className="text-[20px] text-gray-400 mb-2">July 2025 - Present</span>
+                  <span className="text-[28px] font-bold mb-2">BluCypher</span>
+                  <span className="text-[20px] text-gray-400 mb-2">Apr 2026 - Present</span>
                 </div>
               </motion.div>
- 
-              {/* Experience Item 2 - VIT-AP */}
+
+              {/* Experience Item 1 - Cryovault Biotech */}
               <motion.div
                 className="flex items-center w-full min-h-[300px]"
                 initial={{ opacity: 0, y: 40, scale: 0.96 }}
@@ -1017,21 +1042,53 @@ export default function Portfolio() {
               >
                 {/* Left: Company & Time */}
                 <div className="w-[45%] flex flex-col items-end pr-10">
-                  <span className="text-[28px] font-bold mb-2">VIT-AP University</span>
-                  <span className="text-[20px] text-gray-400 mb-2">Nov 2024 - Present</span>
+                  <span className="text-[28px] font-bold mb-2">Cryovault Biotech India</span>
+                  <span className="text-[20px] text-gray-400 mb-2">July 2025 - Present</span>
                 </div>
+                {/* Center: Timeline node */}
                 <div className="flex flex-col items-center w-[10%] relative">
-                  <div className="w-20 h-20 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center z-10 overflow-hidden">
-                    <Image src="/vitap.png" alt="VIT-AP University Logo" width={64} height={64} className="w-full h-full rounded-full object-cover" />
+                  <div className="w-20 h-20 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center z-10 overflow-hidden">
+                    <Image src="/clogo.avif" alt="Cryovault Biotech" width={64} height={64} className="w-full h-full object-cover" />
                   </div>
                 </div>
+                {/* Right: Card */}
                 <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 mr-0 relative">
+                  <h3 className="text-[28px] font-bold mb-6">Product Engineer & Backend Developer</h3>
+                  <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
+                    <li>Designed and developed the company's portal and internal CRM, owning the implementation from planning through deployment.</li>
+                    <li>Implemented secure JWT user sessions and OAuth integrations in Next.js backend routes with PostgreSQL database layer.</li>
+                    <li>Designed and deployed containerized Strapi headless CMS service via Docker, improving deployment consistency and maintainability.</li>
+                  </ul>
+                </div>
+              </motion.div>
+ 
+              {/* Experience Item 2 - VIT-AP */}
+              <motion.div
+                className="flex items-center w-full min-h-[300px]"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+              >
+                {/* Left: Card */}
+                <div className="w-[45%] bg-black border border-gray-700 rounded-xl p-10 ml-0 relative">
                   <h3 className="text-[28px] font-bold mb-6">Backend Engineer & Team Lead</h3>
                   <ul className="text-gray-300 text-[20px] space-y-4 list-disc pl-6">
                     <li>Coordinated development across frontend and backend student contributors, standardizing API specifications and staging workflows.</li>
                     <li>Redesigned and refactored the university information system, implementing Redis query caching to reduce average load latency from 4.2s to 1.1s.</li>
                     <li>Designed relational database schemas for academic course catalogs, improving search efficiency and resource discoverability.</li>
                   </ul>
+                </div>
+                {/* Center: Timeline node */}
+                <div className="flex flex-col items-center w-[10%] relative">
+                  <div className="w-20 h-20 rounded-full bg-white border-4 border-pink-300 flex items-center justify-center z-10 overflow-hidden">
+                    <Image src="/vitap.png" alt="VIT-AP University Logo" width={64} height={64} className="w-full h-full rounded-full object-cover" />
+                  </div>
+                </div>
+                {/* Right: Company & Time */}
+                <div className="w-[45%] flex flex-col items-start pl-10">
+                  <span className="text-[28px] font-bold mb-2">VIT-AP University</span>
+                  <span className="text-[20px] text-gray-400 mb-2">Nov 2024 - Present</span>
                 </div>
               </motion.div>
               
@@ -1041,7 +1098,7 @@ export default function Portfolio() {
                 initial={{ opacity: 0, y: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
               >
                 <div className="w-[45%] flex flex-col items-end pr-10">
                   <span className="text-[28px] font-bold mb-2">Sri Yantra Vidya Intelligent Systems</span>
