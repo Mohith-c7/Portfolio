@@ -796,31 +796,31 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "avy-core",
-                desc: "FastAPI background worker pipeline for CCTV video stream ingestion and live YOLOv8 object anomaly inference.",
-                stars: 18,
-                forks: 4,
-                lang: "Python",
-                langColor: "bg-blue-500",
-                link: "https://github.com/Mohith-c7/AVY-AI-Safety"
-              },
-              {
-                name: "vitap-portal-v2",
-                desc: "Decoupled Next.js university portal with Redis database caching and webhook revalidations.",
-                stars: 12,
-                forks: 2,
+                name: "VertexPM",
+                desc: "AI-Powered Collaborative Project Management Platform. Enterprise-grade Kanban platform featuring real-time Socket.IO collaboration and Fastify backend.",
+                stars: 0,
+                forks: 0,
                 lang: "TypeScript",
                 langColor: "bg-blue-600",
-                link: "https://github.com/Mohith-c7/vitap-portal"
+                link: "https://github.com/Mohith-c7/VertexPM.git"
               },
               {
-                name: "vector-job-matcher",
-                desc: "Express matching engine utilizing pgvector similarity search on resume and job description embeddings.",
-                stars: 24,
-                forks: 5,
+                name: "CyFin",
+                desc: "National Market Data Integrity Monitoring & Protection. Machine learning-powered platform utilizing statistical ensembles to safeguard automated trading.",
+                stars: 1,
+                forks: 1,
+                lang: "Python",
+                langColor: "bg-blue-500",
+                link: "https://github.com/Mohith-c7/CyFin.git"
+              },
+              {
+                name: "AutoAssign",
+                desc: "AI-Powered Assignment Management Assistant. Chrome Extension with a Firebase backend that automatically detects and syncs deadlines from Gmail.",
+                stars: 0,
+                forks: 0,
                 lang: "JavaScript",
                 langColor: "bg-yellow-500",
-                link: "https://github.com/Mohith-c7/Rotaract-Hub"
+                link: "https://github.com/Mohith-c7/AutoAssign.git"
               }
             ].map((repo, idx) => (
               <a
