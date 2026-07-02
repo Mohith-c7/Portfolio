@@ -13,7 +13,7 @@ import LogoM from "@/components/LogoM"
 import { BackgroundBeams } from "@/components/ui/background-beams"
 import Link from "next/link"
 import Footer from "@/components/Footer"
-// import { FloatingParticles } from "@/components/ui/floating-particles"
+import { projectsData } from "@/lib/projects"
 
 export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -357,170 +357,40 @@ export default function Portfolio() {
               <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 border-t-2 border-l-2 border-gray-300">
-            {[
-              {
-                title: "VIT-AP University Portal",
-                category: "Full Stack Engineering",
-                date: "13/05/2025",
-                desc: "Next.js university portal featuring automated CMS synchronization, Redis caching, and optimized content delivery.",
-                image: "/vitapweb.png",
-                github: "https://github.com/Mohith-c7/vitap-portal",
-                live: "#",
-                tech: ["Next.js", "Strapi CMS", "TailwindCSS"],
-                architecture: "Decoupled Server-Client with Redis middleware and static revalidation (ISR).",
-                problem: "The legacy university website experienced slow loads (>4s) during high academic enrollment events and was difficult for non-technical staff to update.",
-                solution: "Decoupled content management with Strapi Headless CMS. Built a Next.js front-end that leverages Incremental Static Regeneration (ISR) via webhook triggers.",
-                challenges: [
-                  {
-                    title: "Latency under concurrent database queries",
-                    desc: "During enrollment, database calls spiked. Solved by implementing Redis cache layer on key endpoints, reducing read latency from 450ms to 12ms."
-                  },
-                  {
-                    title: "Data synchronization",
-                    desc: "Ensured static pages update instantly when CMS data changes by triggering on-demand API revalidation inside Next.js."
-                  }
-                ],
-                lessons: "Caching database queries at the network edge is critical for high-concurrency event handling."
-              },
-              {
-                title: "AVY: AI-Powered Vigilance System",
-                category: "AI & Computer Vision",
-                date: "28/12/2024",
-                desc: "AI-powered surveillance platform using YOLOv8 for real-time object detection and automated monitoring.",
-                image: "/avy.png",
-                github: "https://github.com/Mohith-c7/AVY-AI-Safety",
-                live: "#",
-                tech: ["FastAPI", "Python", "OpenCV", "YOLOv8", "WebSockets", "Supabase"],
-                architecture: "Multithreaded ingestion worker using socket streams and cloud storage replication.",
-                problem: "Traditional CCTV monitoring requires constant human review and suffers from delayed response times during safety incidents.",
-                solution: "Developed an autonomous pipeline that ingests RTSP streams, passes them through a YOLOv8 object-detection network, and broadcasts immediate alerts.",
-                challenges: [
-                  {
-                    title: "Frame rate ingestion bottlenecks",
-                    desc: "Main thread video decoding and model inference caused lag. Decoupled them into producer/consumer worker threads with thread-safe Queue, preserving 30 FPS processing."
-                  },
-                  {
-                    title: "Sub-100ms alerting",
-                    desc: "Designed and implemented FastAPI WebSocket channel to stream detected anomaly markers and frame URLs to clients in near real-time."
-                  }
-                ],
-                lessons: "Decoupling CPU-heavy workloads (ML inference) from network ingestion threads is vital for real-time video processing."
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="flex flex-col justify-between border-b-2 border-r-2 border-gray-300 p-10 min-h-[420px] transition-colors duration-200 hover:bg-gray-50 cursor-pointer"
-                onClick={() => {
-                  setActiveCaseStudy(project)
-                }}
-              >
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-lime-400 font-bold text-[18px]">{'{'} {project.category} {'}'}</span>
-                    <span className="text-gray-500 text-[16px]">{project.date}</span>
-                  </div>
-                  <h3 className="text-[36px] font-bold mb-1 text-black">{project.title}</h3>
-                  <div className="text-gray-600 text-[18px] mb-4">{project.desc}</div>
-                </div>
-                <motion.div
-                  className="overflow-hidden rounded-2xl mb-4"
-                  initial={{ scale: 0.9 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
+          <div className="grid grid-cols-12 border-t-2 border-l-2 border-gray-300">
+            {projectsData.map((project, index) => {
+              const colSpanClass = index < 2 
+                ? "col-span-12 sm:col-span-6 lg:col-span-6" 
+                : "col-span-12 sm:col-span-6 lg:col-span-4"
+
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col justify-between border-b-2 border-r-2 border-gray-300 p-6 md:p-10 min-h-[420px] transition-colors duration-200 hover:bg-gray-50 cursor-pointer ${colSpanClass}`}
+                  onClick={() => {
+                    setActiveCaseStudy(project)
+                  }}
                 >
-                  <img src={project.image} alt={project.title} className="w-full h-[200px] md:h-[320px] object-cover" />
-                </motion.div>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 border-b-2 border-l-2 border-r-2 border-gray-300">
-            {[
-              {
-                title: "Rotaract Hub - Job Portal",
-                category: "System Design / AI Matching",
-                date: "18/03/2025",
-                desc: "AI-assisted job recommendation platform using semantic search with pgvector embeddings.",
-                image: "/rotaract.png",
-                github: "https://github.com/Mohith-c7/Rotaract-Hub",
-                live: "#",
-                tech: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "pgvector", "OpenAI"],
-                architecture: "Tiered MVC with database vector index optimization and prompt scoring pipelines.",
-                problem: "Standard keyword job matching misses relevant candidates due to semantic differences in skill naming.",
-                solution: "Integrated OpenAI's text-embedding-3-small to embed resumes and job descriptions. Queries are performed directly on PostgreSQL utilizing cosine distance indexes.",
-                challenges: [
-                  {
-                    title: "Slow matching under scaling candidate records",
-                    desc: "Resolved index bottlenecks by implementing HNSW (Hierarchical Navigable Small World) indexing in pgvector, cutting match latency down to 23ms."
-                  }
-                ],
-                lessons: "Leveraging database-native vector extensions yields superior performance and simplicity compared to external vector stores for relational entities."
-              },
-              {
-                title: "VTBIF Business Incubator",
-                category: "Authentication & Storage",
-                date: "28/04/2025",
-                desc: "Secure document management and metric tracking portal for startup incubator validation.",
-                image: "/vtbif.png",
-                github: "https://github.com/Mohith-c7/vtbif-portal",
-                live: "#",
-                tech: ["Next.js", "NextAuth.js", "MongoDB", "Mongoose", "AWS S3", "Tailwind CSS"],
-                architecture: "Serverless Next.js API routing with MongoDB Atlas database storage.",
-                problem: "Incubators handle highly confidential intellectual property and business plans, needing granular, secure, role-based document access controls.",
-                solution: "Configured NextAuth.js JWT authentication paired with Next.js middleware and AWS S3 secure private buckets.",
-                challenges: [
-                  {
-                    title: "Secure cloud document uploads",
-                    desc: "Prevented direct exposure of AWS S3 API keys by generating temporary pre-signed upload URLs from serverless routes, validating roles prior to grant."
-                  }
-                ],
-                lessons: "Client-side uploads should never interact directly with long-lived cloud keys; serverless token generation provides absolute security."
-              }
-            ].map((project, index) => (
-              <div 
-                key={index}
-                className="flex flex-col justify-between border-r-0 md:border-r-2 border-gray-300 p-6 md:p-10 min-h-[420px] transition-colors duration-200 hover:bg-gray-50 cursor-pointer"
-                onClick={() => {
-                  setActiveCaseStudy(project)
-                }}
-              >
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-lime-400 font-bold text-[18px]">{'{'} {project.category} {'}'}</span>
-                    <span className="text-gray-500 text-[16px]">{project.date}</span>
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-lime-400 font-bold text-[18px]">{'{'} {project.category} {'}'}</span>
+                      <span className="text-gray-500 text-[16px]">{project.date}</span>
+                    </div>
+                    <h3 className="text-[28px] md:text-[32px] font-bold mb-2 text-black">{project.title}</h3>
+                    <div className="text-gray-600 text-[16px] md:text-[18px] mb-4">{project.desc}</div>
                   </div>
-                  <h3 className="text-[28px] font-bold mb-1 text-black">{project.title}</h3>
-                  <div className="text-gray-600 text-[16px] mb-4">{project.desc}</div>
+                  <motion.div
+                    className="overflow-hidden rounded-2xl mb-4"
+                    initial={{ scale: 0.9 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.7, ease: 'easeOut' }}
+                  >
+                    <img src={project.image} alt={project.title} className="w-full h-[200px] md:h-[320px] object-cover" />
+                  </motion.div>
                 </div>
-                <motion.div
-                  className="overflow-hidden rounded-2xl mb-4"
-                  initial={{ scale: 0.9 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
-                >
-                  <img src={project.image} alt={project.title} className="w-full h-[200px] md:h-[320px] object-cover" />
-                </motion.div>
-              </div>
-            ))}
-            {/* View all projects lime box */}
-            <motion.div
-              initial={{ borderRadius: 24 }}
-              whileHover={{ borderRadius: 0 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="w-full h-full flex items-center justify-center border-r-0 md:border-r-2 border-gray-300 min-h-[420px] bg-lime-400 cursor-pointer text-center group"
-              onClick={() => {
-                window.location.href = '/projects'
-              }}
-            >
-              <span className="flex items-center gap-4 text-black text-[20px] font-medium max-w-full">
-                View all projects
-                <span className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
-                  <ArrowRight className="w-6 h-6 text-white transition-transform duration-300 group-hover:rotate-0 -rotate-45" />
-                </span>
-              </span>
-            </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
