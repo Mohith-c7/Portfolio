@@ -892,8 +892,8 @@ export default function Portfolio() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <div className="flex items-start gap-4">
-                <div className="relative z-10 w-12 h-12 rounded-full bg-cyan-950 border-4 border-cyan-500 flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-6 h-6 text-cyan-400" />
+                <div className="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-cyan-500 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <Image src="/blucypher.jpg" alt="BluCypher" width={32} height={32} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 bg-gray-900 border border-gray-700 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
@@ -1021,8 +1021,8 @@ export default function Portfolio() {
                 </div>
                 {/* Center: Timeline node */}
                 <div className="flex flex-col items-center w-[10%] relative">
-                  <div className="w-20 h-20 rounded-full bg-cyan-950 border-4 border-cyan-500 flex items-center justify-center z-10 overflow-hidden">
-                    <Shield className="w-10 h-10 text-cyan-400" />
+                  <div className="w-20 h-20 rounded-full bg-white border-4 border-cyan-500 flex items-center justify-center z-10 overflow-hidden">
+                    <Image src="/blucypher.jpg" alt="BluCypher Logo" width={64} height={64} className="w-full h-full object-cover" />
                   </div>
                 </div>
                 {/* Right: Company & Time */}
