@@ -264,7 +264,7 @@ export default function Portfolio() {
                     className="bg-lime-400 text-black hover:bg-lime-500 rounded-full px-8 py-4 md:px-10 md:py-5 text-[16px] md:text-[18px] font-bold h-auto group shadow-lg"
                     onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    See my code & Systems
+                    Explore Projects
                     <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
