@@ -248,16 +248,8 @@ export default function Portfolio() {
                   }}
                 >
                   <p className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-600 leading-relaxed max-w-[600px] font-bold mx-auto md:mx-0">
-                    I love building systems and applications that make a difference. I'm passionate about clean architecture, performance optimization, and solving real-world engineering problems.
+                    I build backend systems, REST APIs, AI-powered applications, and scalable web platforms using modern technologies. I'm passionate about clean architecture, performance optimization, and solving real-world engineering problems.
                   </p>
-                  {/* Years Experience positioned absolutely */}
-                  <div className="absolute left-[-59%] top-1 pl-4 hidden md:block">
-                    <span className="text-[20px] text-gray-500 font-bold">(2024 - present)</span>
-                  </div>
-                  {/* Mobile version of years experience */}
-                  <div className="block md:hidden mt-4">
-                    <span className="text-[16px] text-gray-500 font-bold">(2024 - present)</span>
-                  </div>
                 </motion.div>
 
                 {/* CTA Button */}
@@ -272,7 +264,7 @@ export default function Portfolio() {
                     className="bg-lime-400 text-black hover:bg-lime-500 rounded-full px-8 py-4 md:px-10 md:py-5 text-[16px] md:text-[18px] font-bold h-auto group shadow-lg"
                     onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    See my code & systems
+                    See my code & Systems
                     <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>
