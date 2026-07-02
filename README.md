@@ -12,7 +12,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Performance**: Optimized images, caching strategies, and efficient animation cycles
 
 ### Sections
-- **Hero Section**: Interactive profile with social links, LeetCode profile hover, and software CTA
+- **Hero Section**: Interactive profile with social links and software CTA
 - **Engineering Journey**: Professional progression from frontend to backend and distributed systems
 - **Projects**: Showcase of production-ready systems with detailed interactive case study modals (System Architecture, Challenges, Lessons Learned)
 - **Tech Stack**: Categorized stack showcasing languages, backend, databases, cloud, and AI tools
@@ -78,7 +78,6 @@ portfolio-website/
 - **Portfolio**: [https://mohithkumar.vercel.app](https://mohithkumar.vercel.app)
 - **LinkedIn**: [Mohith Kumar](https://www.linkedin.com/in/mohith-kumar-chadalawada-37a90b2a1/)
 - **GitHub**: [@Mohith-c7](https://github.com/Mohith-c7)
-- **LeetCode**: [Mohith-c7](https://leetcode.com/u/Mohith-c7/)
 - **Email**: iammohithkumar@gmail.com
 
 ---
