@@ -138,7 +138,7 @@ export default function GlassNav() {
               style={{ pointerEvents: minimized ? "none" : "auto" }}
             >
               <a href="#portfolio" className="text-[14px] md:text-[16px] font-semibold text-gray-700 hover:text-black transition-colors focus:outline-none">Projects</a>
-              <a href="/Mohith_Resume_UX.pdf" download className="text-[14px] md:text-[16px] font-semibold text-gray-700 hover:text-black transition-colors focus:outline-none">Resume</a>
+              <a href="/Mohith_Resume.pdf" download className="text-[14px] md:text-[16px] font-semibold text-gray-700 hover:text-black transition-colors focus:outline-none">Resume</a>
               <a 
                 href="#footer" 
                 onClick={(e) => {

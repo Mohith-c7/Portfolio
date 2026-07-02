@@ -11,10 +11,10 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mohithux.vercel.app'),
-  title: "Mohith Kumar - Product Designer",
+  title: "Mohith Kumar | Software Engineer | Backend Developer",
   description:
-    "Passionate Product Designer, turning your ideas into pixel-perfect realities. Specializing in product design, web design, branding, and user experience.",
-  keywords: "Mohith Kumar Chadalawada, Product Designer, UI/UX designer, web design, user experience, portfolio, digital design, Mohith Kumar, UX designer, interface design",
+    "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
+  keywords: "Mohith Kumar Chadalawada, Software Engineer, Backend Engineer, Full Stack Developer, AI Developer, distributed systems, API design, Next.js, FastAPI, Node.js, developer portfolio",
   authors: [{ name: "Mohith Kumar" }],
   creator: "Mohith Kumar",
   publisher: "Mohith Kumar",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     apple: '/logoM-favicon.png',
   },
   openGraph: {
-    title: "Mohith Kumar - Product Designer",
-    description: "Passionate Product Designer, turning your ideas into pixel-perfect realities.",
+    title: "Mohith Kumar | Software Engineer | Backend Developer",
+    description: "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
     type: "website",
     locale: "en_US",
     url: "https://mohithux.vercel.app",
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
         url: "/profile-photo.png",
         width: 1200,
         height: 630,
-        alt: "Mohith Kumar - Product Designer",
+        alt: "Mohith Kumar - Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohith Kumar - Product Designer Portfolio",
-    description: "Passionate Product Designer, turning your ideas into pixel-perfect realities.",
+    title: "Mohith Kumar | Software Engineer Portfolio",
+    description: "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
     creator: "@mohithkumar",
     images: ["/profile-photo.png"],
   },
@@ -87,12 +87,12 @@ export default function RootLayout({
               "sameAs": [
                 "mailto:iammohithkumar@gmail.com"
               ],
-              "jobTitle": "UI/UX Designer",
+              "jobTitle": "Software Engineer",
               "worksFor": {
                 "@type": "Organization",
                 "name": "Freelance"
               },
-              "description": "Passionate User Experience Designer, turning your ideas into pixel-perfect realities. Specializing in web design, branding, and user experience."
+              "description": "Passionate Software Engineer specializing in backend architectures, distributed systems, REST/GraphQL APIs, and AI-powered applications."
             })
           }}
         />

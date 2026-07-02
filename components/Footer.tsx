@@ -22,18 +22,18 @@ export default function Footer() {
           </div>
 
           <h2 className="text-[48px] md:text-[56px] font-bold leading-[1.1] mb-8 text-center flex flex-col items-center justify-center w-full">
-            Let's create something <span className="text-lime-400">extraordinary</span> together.
+            Let's build software <span className="text-lime-400">that scales</span>.
           </h2>
-
+ 
           <p className="text-[20px] text-gray-400 mb-12 max-w-[700px] mx-auto leading-relaxed">
-            Ready to bring your vision to life? Let's discuss your project and create something amazing that stands out in the digital landscape and drives real results.
+            I am actively open to Software Engineering roles, Backend Developer positions, Internships, Open Source collaborations, and technical builds. Let's discuss how we can build scalable software solutions for your product.
           </p>
-
+ 
           <Button 
             className="bg-lime-400 text-black hover:bg-lime-500 rounded-full px-12 py-6 text-[18px] font-bold group h-auto"
             onClick={() => window.location.href = 'mailto:iammohithkumar@gmail.com'}
           >
-            Start a project
+            Start a collaboration
             <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -45,10 +45,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
               <div className="w-2 h-2 bg-lime-400 rounded-full"></div>
-              <span className="font-medium text-[18px]">Mohith</span>
+              <span className="font-medium text-[18px]">Mohith Kumar Chadalawada</span>
             </div>
             <div className="flex items-center justify-center w-full md:justify-end md:w-auto md:space-x-8">
-              <div className="text-gray-400 text-[15px] text-center w-full">© 2025 Mohith Kumar. All rights reserved.</div>
+              <div className="text-gray-400 text-[15px] text-center w-full">© 2026 Mohith Kumar Chadalawada. All rights reserved.</div>
             </div>
           </div>
         </div>

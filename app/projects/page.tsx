@@ -1,46 +1,146 @@
 'use client'
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import GlassNav from "@/components/GlassNav"
-import LogoM from "@/components/LogoM"
 import Footer from "@/components/Footer"
+import { Github, ExternalLink, Terminal, Zap } from "lucide-react"
 
-const projects = [
+const projectsData = [
   {
-    title: "VIT-AP University Website",
-    desc: "A modern, accessible university website redesign focused on clarity, navigation, and user experience.",
-    image: "/placeholder.svg?height=320&width=480",
+    title: "VIT-AP University Portal",
+    category: "Full Stack & Caching",
+    date: "13/05/2025",
+    desc: "Next.js university portal featuring automated CMS synchronization, Redis caching, and optimized content delivery.",
+    image: "/vitapweb.png",
+    github: "https://github.com/Mohith-c7/vitap-portal",
+    live: "#",
+    tech: ["Next.js", "Strapi CMS", "Redis", "PostgreSQL", "Docker", "Nginx"],
+    architecture: "Decoupled Server-Client with Redis middleware and static revalidation (ISR).",
+    problem: "The legacy university website experienced slow loads (>4s) during high academic enrollment events and was difficult for non-technical staff to update.",
+    solution: "Decoupled content management with Strapi Headless CMS. Built a Next.js front-end that leverages Incremental Static Regeneration (ISR) via webhook triggers.",
+    challenges: [
+      {
+        title: "Latency under concurrent database queries",
+        desc: "During enrollment, database calls spiked. Solved by implementing Redis cache layer on key endpoints, reducing read latency from 450ms to 12ms."
+      },
+      {
+        title: "Data synchronization",
+        desc: "Ensured static pages update instantly when CMS data changes by triggering on-demand API revalidation inside Next.js."
+      }
+    ],
+    lessons: "Caching database queries at the network edge is critical for high-concurrency event handling."
   },
   {
-    title: "AVY: AI-Powered Safety System",
-    desc: "A neomorphic web and app design for an AI-powered safety and vigilance platform.",
-    image: "/placeholder.svg?height=320&width=480",
+    title: "AVY: AI-Powered Vigilance System",
+    category: "AI & Computer Vision",
+    date: "28/12/2024",
+    desc: "AI-powered surveillance platform using YOLOv8 for real-time object detection and automated monitoring.",
+    image: "/avy.png",
+    github: "https://github.com/Mohith-c7/AVY-AI-Safety",
+    live: "#",
+    tech: ["FastAPI", "Python", "OpenCV", "YOLOv8", "WebSockets", "Supabase"],
+    architecture: "Multithreaded ingestion worker using socket streams and cloud storage replication.",
+    problem: "Traditional CCTV monitoring requires constant human review and suffers from delayed response times during safety incidents.",
+    solution: "Developed an autonomous pipeline that ingests RTSP streams, passes them through a YOLOv8 object-detection network, and broadcasts immediate alerts.",
+    challenges: [
+      {
+        title: "Frame rate ingestion bottlenecks",
+        desc: "Main thread video decoding and model inference caused lag. Decoupled them into producer/consumer worker threads with thread-safe Queue, preserving 30 FPS processing."
+      },
+      {
+        title: "Sub-100ms alerting",
+        desc: "Designed and implemented FastAPI WebSocket channel to stream detected anomaly markers and frame URLs to clients in near real-time."
+      }
+    ],
+    lessons: "Decoupling CPU-heavy workloads (ML inference) from network ingestion threads is vital for real-time video processing."
   },
   {
     title: "Rotaract Hub - Job Portal",
-    desc: "A transactional UI for a job portal, streamlining job search and application processes.",
-    image: "/placeholder.svg?height=320&width=480",
+    category: "System Design / AI Matching",
+    date: "18/03/2025",
+    desc: "AI-assisted job recommendation platform using semantic search with pgvector embeddings.",
+    image: "/rotaract.png",
+    github: "https://github.com/Mohith-c7/Rotaract-Hub",
+    live: "#",
+    tech: ["Node.js", "Express", "PostgreSQL", "Prisma ORM", "pgvector", "OpenAI"],
+    architecture: "Tiered MVC with database vector index optimization and prompt scoring pipelines.",
+    problem: "Standard keyword job matching misses relevant candidates due to semantic differences in skill naming.",
+    solution: "Integrated OpenAI's text-embedding-3-small to embed resumes and job descriptions. Queries are performed directly on PostgreSQL utilizing cosine distance indexes.",
+    challenges: [
+      {
+        title: "Slow matching under scaling candidate records",
+        desc: "Resolved index bottlenecks by implementing HNSW (Hierarchical Navigable Small World) indexing in pgvector, cutting match latency down to 23ms."
+      }
+    ],
+    lessons: "Leveraging database-native vector extensions yields superior performance and simplicity compared to external vector stores for relational entities."
   },
   {
-    title: "VTBIF",
-    desc: "Website design and development for a business incubator, focusing on information clarity and engagement.",
-    image: "/placeholder.svg?height=320&width=480",
+    title: "VTBIF Business Incubator",
+    category: "Authentication & Storage",
+    date: "28/04/2025",
+    desc: "Secure document management and metric tracking portal for startup incubator validation.",
+    image: "/vtbif.png",
+    github: "https://github.com/Mohith-c7/vtbif-portal",
+    live: "#",
+    tech: ["Next.js", "NextAuth.js", "MongoDB", "Mongoose", "AWS S3", "Tailwind CSS"],
+    architecture: "Serverless Next.js API routing with MongoDB Atlas database storage.",
+    problem: "Incubators handle highly confidential intellectual property and business plans, needing granular, secure, role-based document access controls.",
+    solution: "Configured NextAuth.js JWT authentication paired with Next.js middleware and AWS S3 secure private buckets.",
+    challenges: [
+      {
+        title: "Secure cloud document uploads",
+        desc: "Prevented direct exposure of AWS S3 API keys by generating temporary pre-signed upload URLs from serverless routes, validating roles prior to grant."
+      }
+    ],
+    lessons: "Client-side uploads should never interact directly with long-lived cloud keys; serverless token generation provides absolute security."
   },
   {
-    title: "SOUL: Sense Our Ultimate Link",
-    desc: "End-to-end UI/UX for a chatting application, emphasizing seamless communication and user empathy.",
-    image: "/placeholder.svg?height=320&width=480",
+    title: "SOUL: Secure Chat Platform",
+    category: "WebSockets & Encryption",
+    date: "10/01/2025",
+    desc: "End-to-end encrypted messaging application built with React Native and Node.js WebSockets.",
+    image: "/soul.gif",
+    github: "https://github.com/Mohith-c7/soul-chat",
+    live: "#",
+    tech: ["React Native", "Node.js", "WebSockets", "MongoDB", "Express", "Crypto API"],
+    architecture: "Client-server architecture utilizing secure TCP sockets and Diffie-Hellman key exchange.",
+    problem: "Standard messaging applications store messages in plaintext on servers, exposing user privacy to database security breaches.",
+    solution: "Implemented client-side E2EE using AES-GCM before transport, securing metadata and messages directly from the device.",
+    challenges: [
+      {
+        title: "WebSocket connection instability",
+        desc: "Addressed packet drop rates on unstable network lines by adding automated heartbeat triggers and a client-side offline message buffer Queue."
+      }
+    ],
+    lessons: "Ensuring zero-trust communication requires client-side cryptographical handshakes before database writes."
   },
   {
-    title: "Easy Food",
-    desc: "A food delivery platform UI, designed for speed, simplicity, and delightful user experience.",
-    image: "/placeholder.svg?height=320&width=480",
-  },
+    title: "Easy Food Delivery API",
+    category: "Microservices & Distributed Locking",
+    date: "05/11/2024",
+    desc: "High-performance microservices API optimized for order distribution and geohash driver matching.",
+    image: "/placeholder.jpg",
+    github: "https://github.com/Mohith-c7/easy-food-api",
+    live: "#",
+    tech: ["Go", "Gin", "PostgreSQL", "Redis", "Kafka", "Docker"],
+    architecture: "Microservices orchestration backend using a message broker stream.",
+    problem: "Matching food delivery orders dynamically to nearby active couriers under peak hours creates high latency.",
+    solution: "Built a high-performance Go service using spatial geohash grids in Redis to query and lock couriers within a 3km radius.",
+    challenges: [
+      {
+        title: "Double-matching race conditions",
+        desc: "Resolved concurrency lock conflicts during simultaneous order matching using Redis distributed locking (Redlock)."
+      }
+    ],
+    lessons: "Decoupling API ingestion endpoints from processing workers via message queue brokers ensures stable write throughput."
+  }
 ]
 
 export default function ProjectsPage() {
+  const [activeCaseStudy, setActiveCaseStudy] = useState<any | null>(null)
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <GlassNav />
@@ -48,7 +148,7 @@ export default function ProjectsPage() {
         <div className="max-w-[1400px] mx-auto px-8">
           <h1 className="text-[72px] font-bold leading-[1.05] mb-20 text-black">All Projects</h1>
           <div className="flex flex-col divide-y divide-gray-200">
-            {projects.map((project, idx) => (
+            {projectsData.map((project, idx) => (
               <motion.div
                 key={idx}
                 className={`flex flex-col md:flex-row items-center group transition-all duration-300 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''} py-12`}
@@ -59,20 +159,27 @@ export default function ProjectsPage() {
               >
                 {/* Text */}
                 <div className="w-full md:w-1/2 px-6 md:px-12">
+                  <span className="text-lime-500 font-bold text-[16px] block mb-2">{`{`} {project.category} {`}`}</span>
                   <h2 className="text-[36px] font-bold mb-4 text-black group-hover:text-lime-500 transition-colors duration-300">{project.title}</h2>
-                  <p className="text-[20px] text-gray-600 mb-6 font-medium">{project.desc}</p>
-                  <Button className="bg-lime-400 text-black hover:bg-lime-500 rounded-full px-8 py-4 text-[16px] font-bold h-auto group-hover:scale-105 transition-transform">View Case Study</Button>
+                  <p className="text-[20px] text-gray-600 mb-6 font-medium leading-relaxed">{project.desc}</p>
+                  <Button 
+                    className="bg-lime-400 text-black hover:bg-lime-500 rounded-full px-8 py-4 text-[16px] font-bold h-auto group-hover:scale-105 transition-transform"
+                    onClick={() => setActiveCaseStudy(project)}
+                  >
+                    View System Case Study
+                  </Button>
                 </div>
                 {/* Image */}
                 <motion.div
-                  className="w-full md:w-1/2 flex justify-center items-center overflow-hidden rounded-3xl z-10 transition-transform duration-300"
+                  className="w-full md:w-1/2 flex justify-center items-center overflow-hidden rounded-3xl z-10 transition-transform duration-300 cursor-pointer"
+                  onClick={() => setActiveCaseStudy(project)}
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={480}
                     height={320}
-                    className="w-full h-[240px] md:h-[320px] object-cover rounded-3xl transition-shadow duration-300"
+                    className="w-full h-[240px] md:h-[320px] object-cover rounded-3xl transition-shadow duration-300 hover:scale-105 duration-500"
                   />
                 </motion.div>
               </motion.div>
@@ -81,7 +188,114 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* Case Study Modal */}
+      {activeCaseStudy && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4 overflow-y-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-white rounded-3xl p-6 md:p-10 max-w-3xl w-full shadow-2xl relative border border-gray-200 my-8 max-h-[90vh] overflow-y-auto"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveCaseStudy(null)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-lime-400"
+              aria-label="Close Case Study"
+            >
+              ✕
+            </button>
+
+            {/* Header */}
+            <div className="mb-6">
+              <span className="text-lime-500 font-bold text-[16px] block mb-2">{`{`} {activeCaseStudy.category} {`}`}</span>
+              <h3 className="text-[32px] md:text-[40px] font-bold text-black leading-tight mb-2">
+                {activeCaseStudy.title}
+              </h3>
+              <span className="text-gray-400 text-[14px]">{activeCaseStudy.date}</span>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {activeCaseStudy.tech.map((t: string, idx: number) => (
+                <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 text-[13px] font-bold rounded-full">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* Content Sections */}
+            <div className="space-y-8 text-left text-gray-700">
+              <div>
+                <h4 className="text-[18px] font-bold text-black mb-2 flex items-center gap-2">
+                  <Terminal className="w-5 h-5 text-lime-500" />
+                  System Architecture
+                </h4>
+                <p className="text-[15px] leading-relaxed text-gray-600 font-medium">{activeCaseStudy.architecture}</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-[18px] font-bold text-black mb-2">The Problem</h4>
+                  <p className="text-[15px] leading-relaxed text-gray-600 font-medium">{activeCaseStudy.problem}</p>
+                </div>
+                <div>
+                  <h4 className="text-[18px] font-bold text-black mb-2">The Solution</h4>
+                  <p className="text-[15px] leading-relaxed text-gray-600 font-medium">{activeCaseStudy.solution}</p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-[18px] font-bold text-black mb-3">Key Engineering Challenges</h4>
+                <div className="space-y-4">
+                  {activeCaseStudy.challenges.map((challenge: any, idx: number) => (
+                    <div key={idx} className="p-5 bg-gray-50 border border-gray-200 rounded-2xl">
+                      <h5 className="font-bold text-black text-[15px] mb-1.5 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-lime-500 rounded-full" />
+                        {challenge.title}
+                      </h5>
+                      <p className="text-[14px] text-gray-600 leading-relaxed font-medium">{challenge.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-5 bg-lime-50/50 border border-lime-100 rounded-2xl">
+                <h4 className="text-[16px] font-bold text-black mb-1.5 flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-lime-600" />
+                  Core Lesson Learned
+                </h4>
+                <p className="text-[14px] text-gray-700 leading-relaxed font-medium">{activeCaseStudy.lessons}</p>
+              </div>
+            </div>
+
+            {/* Footer CTAs */}
+            <div className="mt-8 pt-8 border-t border-gray-100 flex flex-wrap gap-4">
+              <a
+                href={activeCaseStudy.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-black text-white hover:bg-gray-900 px-6 py-3.5 rounded-full text-[15px] font-bold shadow-md transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                View Code Base
+              </a>
+              {activeCaseStudy.live !== "#" && (
+                <a
+                  href={activeCaseStudy.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-gray-100 text-black hover:bg-gray-200 px-6 py-3.5 rounded-full text-[15px] font-bold transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Live Platform
+                </a>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       <Footer />
     </div>
   )
-} 
+}
