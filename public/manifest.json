@@ -13,7 +13,7 @@
   "icons": [
     {
       "src": "/logoM-favicon.png",
-      "sizes": "any",
+      "sizes": "36x36",
       "type": "image/png",
       "purpose": "any maskable"
     }
