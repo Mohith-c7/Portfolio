@@ -1,7 +1,7 @@
 {
-  "name": "Mohith Kumar - UI/UX Portfolio",
+  "name": "Mohith Kumar - Software Engineer Portfolio",
   "short_name": "Mohith Portfolio",
-  "description": "Passionate User Experience Designer, turning your ideas into pixel-perfect realities.",
+  "description": "Passionate Software Engineer & Backend Developer. Specializing in building scalable web architectures, API design, database systems, and AI-powered applications.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -9,12 +9,12 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["design", "portfolio", "business"],
+  "categories": ["development", "portfolio", "software"],
   "icons": [
     {
-      "src": "/logoM-favicon.svg",
+      "src": "/logoM-favicon.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
